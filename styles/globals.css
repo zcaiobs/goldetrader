@@ -14,3 +14,26 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 78vh;
+}
+
+.content img {
+  width: 350px;
+}
+
+.app {
+  width: 100%;
+}
+
+.bg-color-1 {
+  background: #606060;
+}
+
+.bg-color-2 {
+  background: #ffffff;
+}
