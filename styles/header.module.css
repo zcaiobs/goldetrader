@@ -1,0 +1,29 @@
+.navbar {
+    width: 100%;
+    height: 80px;
+    background: #606060;
+    border-bottom: 1px solid #e2e2e2;
+    box-shadow: 1px 1px 5px #e9e9e9;
+}
+
+.logo img {
+    width: 80px;
+    height: 100%;
+}
+
+.login {
+    color: white;
+}
+
+.content {
+    width: 95%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media (max-width: 600px) {
+ 
+}

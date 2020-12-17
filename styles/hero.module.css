@@ -1,0 +1,29 @@
+.hero {
+    width: 100%;
+    background: rgb(235, 235, 235);
+    display: flex;
+    justify-content: space-between;
+}
+
+.preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.brand img {
+    width: 100%;
+    max-width: 650px;
+}
+
+@media (max-width: 600px) {
+ .brand {
+     display: none;
+ }
+
+ .preview {
+     height: 80vh;
+     width: 100%;
+ }
+}
