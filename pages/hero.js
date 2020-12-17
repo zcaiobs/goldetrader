@@ -7,7 +7,7 @@ export default function Hero() {
             <h1>Text</h1>
           </div>
           <div className={styles.brand}>
-            <img src="/hero.svg" alt="Hero"/>
+            <img src="/hero-dark.svg" alt="Hero"/>
           </div>
         </div>
     )

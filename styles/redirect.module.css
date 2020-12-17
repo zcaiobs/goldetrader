@@ -1,0 +1,49 @@
+.container2 {
+    width: 100%;
+    height: 100vh;
+    background: white;  
+}
+
+.redirect {
+    width: 95%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info2 img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.btnLink {
+    width: 100px;
+    height: 45px;
+    border: 2px solid #FFC83E;
+    border-radius: 5px;
+    background: #FFC83E;
+    font-weight: bold;
+    color: black;
+    outline: none;
+}
+
+.btnLink:active {
+    border-color: #3e51ff;
+    color: #3e51ff;
+}
+
+@media (max-width: 600px) {
+    .redirect {
+        flex-direction: column;
+    }
+   }

@@ -27,12 +27,11 @@ a {
 
 .app {
   width: 100%;
+  background-image: url('../public/bg-dark.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.bg-color-1 {
-  background: #606060;
-}
-
-.bg-color-2 {
-  background: #ffffff;
-}
+@media (max-width: 600px) {
+  
+ }
