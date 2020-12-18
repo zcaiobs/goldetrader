@@ -31,6 +31,11 @@ a {
   background: #333b4d;
 }
 
+.login {
+  width: 100%;
+  background: white;
+}
+
 @media (max-width: 600px) {
   
  }

@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from 'next/link'
 import styles from "../styles/header.module.css";
 
-export default function Header() {
+export default function Header(props) {
   return (
     <div className="container">
       <Head>
@@ -14,15 +14,15 @@ export default function Header() {
           rel="stylesheet"
         />
       </Head>
-      <nav className={styles.navbar}>
+      <nav className={styles.navbar + ' ' + props}>
         <div className={styles.content}>
           <div className={styles.logo}>
             <img src="/logo.svg" alt="Logo" />
             <div className={styles.links}>
               <ul>
-                <li><a href='#hero'>Home</a></li>
-                <li><a href='#content'>Content</a></li>
-                <li><a href='#singup'>Sing up</a></li>
+                <li><Link href='/#hero'>Home</Link></li>
+                <li><Link href='/#content'>Content</Link></li>
+                <li><Link href='/#singup'>Sing up</Link></li>
               </ul>
             </div>
           </div>
