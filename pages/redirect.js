@@ -2,7 +2,7 @@ import styles from "../styles/redirect.module.css";
 
 export default function Redirect() {
   return (
-    <div className={styles.container2}>
+    <div className={styles.container2} id='singup'>
       <div className={styles.redirect}>
         <div className={styles.info2}>
           <img src="/info2.jpg" alt="Gol" />

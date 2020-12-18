@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from 'next/link'
 import styles from "../styles/header.module.css";
 
 export default function Header() {
@@ -17,9 +18,16 @@ export default function Header() {
         <div className={styles.content}>
           <div className={styles.logo}>
             <img src="/logo.svg" alt="Logo" />
+            <div className={styles.links}>
+              <ul>
+                <li><a href='#hero'>Home</a></li>
+                <li><a href='#content'>Content</a></li>
+                <li><a href='#singup'>Sing up</a></li>
+              </ul>
+            </div>
           </div>
           <div className={styles.login}>
-            <h1>Login</h1>
+            <Link href='/login'><h1>Login</h1></Link>
           </div>
         </div>
       </nav>
