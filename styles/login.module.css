@@ -1,4 +1,92 @@
-.imput {
+.input {
     display: flex;
-    height: 700px;
+    margin: auto;
+    width: 95%;
+    height: 100vh;
+    min-height: 700px;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    color: #333b4d;
+    flex-direction: column;
+}
+
+.backHome > img {
+    width: 200px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.form {
+    width: 350px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    background: #f0f0f0;
+    border: 1px solid rgb(218, 218, 218);
+    padding: 30px;
+    border-radius: 10px;
+    font-weight: 500;
+    box-shadow: 1px 1px 2px rgba(202, 202, 202, 0.335);
+}
+
+.form input {
+    width: 100%;
+    height: 40px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid rgb(214, 214, 214);
+    outline: none;
+    text-align: center;
+    font-size: 18px;
+}
+
+.form input:focus {
+    border-color: #3e92ff;
+}
+
+.form button {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid rgb(221, 221, 221);
+    outline: none;
+    font-size: 13px;
+    background: #FFC83E;
+    cursor: pointer;
+}
+
+.form button:active {
+    background: #3e92ff;
+}
+
+.forgot {
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.forgot a {
+    text-decoration: underline;
+}
+
+.form hr {
+    margin-top: 50px;
+    width: 100%;
+    height: 1px;
+    border-style: none;
+    background-color: rgb(214, 214, 214);
+}
+
+.form h1 {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.form > a {
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 18px;
+    color: #535e77;
 }

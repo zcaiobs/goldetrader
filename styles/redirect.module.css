@@ -35,14 +35,14 @@
     border-radius: 5px;
     background: #FFC83E;
     font-weight: bold;
-    color: black;
+    color: #333b4d;
     outline: none;
     cursor: pointer;
 }
 
 .btnLink:active {
-    border-color: #3e51ff;
-    color: #3e51ff;
+    border-color: #3e92ff;
+    color: #3e92ff;
 }
 
 @media (max-width: 600px) {

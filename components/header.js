@@ -17,7 +17,7 @@ export default function Header(props) {
       <nav className={styles.navbar + ' ' + props}>
         <div className={styles.content}>
           <div className={styles.logo}>
-            <img src="/logo.svg" alt="Logo" />
+            <a href='/'><img src="/logo.svg" alt="Logo" /></a>
             <div className={styles.links}>
               <ul>
                 <li><Link href='/#hero'>Home</Link></li>

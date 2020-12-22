@@ -3,7 +3,7 @@
     height: 80px;
     background: white;
     position: fixed;
-    box-shadow: 1px 1px 15px rgb(88, 88, 88);
+    box-shadow: 1px 1px 15px rgba(71, 71, 71, 0.719);
 }
 
 .logo {
@@ -24,6 +24,10 @@
 
 .login:hover {
     color: #FFC83E;
+}
+
+.login h1 {
+    padding: 10px;
 }
 
 .content {
