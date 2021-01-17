@@ -36,6 +36,18 @@ a {
   background: white;
 }
 
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: cornflowerblue;
+  position: fixed;
+}
+
+.done {
+  display: none;
+}
+
 @media (max-width: 600px) {
   
  }
