@@ -2,11 +2,15 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "../styles/user.module.css";
+import Config from '../components/config'
+import Menu from '../components/menu'
+import Dashboard from '../components/dashboard'
 
 export default function User() {
   const [auth, setAuth] = useState(false);
   const [user, setUser] = useState([]);
   const router = useRouter();
+  const [btn, setBtn] = useState("a")
 
   const comp = async () => {
     try {
@@ -41,11 +45,20 @@ export default function User() {
   } else {
     return (
       <div className={styles.user}> 
-        {/* {user.map((res) => (
-        <h2 key={res.id}>{res.name}</h2>
-      ))} */}
-       <p>Welcome <span>{user.name}</span> to the Gol de Trader </p> 
+      <div className={styles.container}>
+        <div className={styles.config}>
+          <Config user={user.name}/>
+        </div>
+        <div className={styles.row}>
+          <div className={styles.menu}>
+            <Menu option={(res) => setBtn(res)}/>
+          </div>
+          <div className={styles.content}>
+            <Dashboard select={btn}/>
+          </div>
+        </div>
       </div>
+    </div>
     );
   }
 }

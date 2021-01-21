@@ -2,13 +2,11 @@ import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
 import Footer from "../components/footer";
-import styles from "../styles/login.module.css";
-import { useRouter } from "next/router";
+import styles from "../styles/forgot.module.css";
 
-export default function Login() {
+export default function Forgot() {
   const [error, setError] = useState("");
   const [user, setUser] = useState({});
-  const router = useRouter();
 
   const handleValue = (event) => {
     const name = event.target.name;
@@ -24,33 +22,36 @@ export default function Login() {
       method: "POST",
       headers: { "content-type": "application/json" },
       data: JSON.stringify(user),
-      url: "http://localhost:8080/auth",
+      url: "http://localhost:8080/forgot",
     };
+    reset();
     return await axios.request(options);
+  };
+
+  const reset = () => {
+    document.getElementById("form").reset();
   };
 
   const enter = (event) => {
     auth(user)
-      .then((result) => {
-        if (result.status === 200) {
-          localStorage.removeItem("token");
-          localStorage.setItem("token", result.headers.token);
-          router.push("/user");
-        }
+      .then((res) => {
+        alert(res.data)
       })
-      .catch((err) => setError(""+err));
+      .catch((err) => {
+        setError("" + err) 
+      });
     event.preventDefault();
   };
 
   return (
-    <div className="login">
+    <div className="forgot">
       <div className={styles.input}>
         <div className={styles.backHome}>
           <Link href="/">
             <img src="/hero-light.svg" alt="Back home" />
           </Link>
         </div>
-        <form className={styles.form} onSubmit={enter}>
+        <form id="form" className={styles.form} onSubmit={enter}>
           <label>
             Email
             <br />
@@ -62,27 +63,11 @@ export default function Login() {
               required
             />
           </label>
-          <label>
-            Password
-            <br />
-            <input
-              type="password"
-              name="password"
-              placeholder="*****"
-              onChange={handleValue}
-              required
-            />
-          </label>
-          <button>Enter</button>
-          <div className={styles.forgot}>
-            <Link href="/forgot">Forgot password</Link>
-          </div>
+          <button>Send</button>
           <div className={styles.error}>
             <p>{error}</p>
           </div>
           <hr />
-          <h1>New to Gol de Trader?</h1>
-          <Link href="/register">Sing Up</Link>
         </form>
       </div>
       <Footer />

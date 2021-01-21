@@ -1,0 +1,10 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.menu button {
+    width: 100%;
+    height: 50px;
+}
