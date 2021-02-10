@@ -1,4 +1,5 @@
 import styles from "../styles/dashboard.module.css";
+import CreateBet from '../components/createbet'
 
 export default function Dashboard(props) {
   switch (props.select) {
@@ -11,7 +12,7 @@ export default function Dashboard(props) {
     case "b":
       return (
         <div className={styles.dashboard}>
-          <h1>Option 2</h1>
+          <CreateBet trader={props.trader}/>
         </div>
       );
     case "c":

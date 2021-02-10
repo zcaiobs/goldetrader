@@ -10,6 +10,7 @@ export default function Login() {
   const [user, setUser] = useState({});
   const [repwd, setRepwd] = useState("");
   const [error, setError] = useState("");
+  const [active, setActive] = useState(false);
 
   const handleValue = (event) => {
     const name = event.target.name;
@@ -31,16 +32,20 @@ export default function Login() {
       data: JSON.stringify(user),
       url: "http://localhost:8080",
     };
+    reset();
     return await axios.request(options);
   };
 
   const enter = (event) => {
+    setActive(true)
     if (user.password === repwd) {
       register(user).then((result) => {
-        alert("User registered")
-        reset();
+        alert("A verification link has been sent to your email account");
         router.push("/login")
-      }).catch(err => setError("" + err))
+      }).catch(err => {
+        setError("" + err)
+        setActive(false)
+      })
     } 
     event.preventDefault();
   };
@@ -106,7 +111,7 @@ export default function Login() {
               placeholder="*****"
             />
           </label>
-          <button>Register</button>
+          <button disabled={active}>Register</button>
           <div className={styles.error}>
             <p>{error}</p>
           </div>

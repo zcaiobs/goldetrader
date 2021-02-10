@@ -33,16 +33,23 @@ export default function User() {
   useEffect(() => {
     comp()
       .then((res) => {
-        console.log(res.data);
         setAuth(res.status);
         setUser(res.data);
+        console.log(res.data)
       })
-      .catch((err) => console.log("Deu ruim " + err));
+      .catch((err) => console.log("Error " + err));
   }, []);
 
   if (auth !== 200) {
-    return <div>...</div>;
-  } else {
+    return <></>;
+  }
+
+  if (auth === 202) {
+    router.push("/verify")
+    return <></>;
+  }
+
+  else {
     return (
       <div className={styles.user}> 
       <div className={styles.container}>
@@ -54,7 +61,7 @@ export default function User() {
             <Menu option={(res) => setBtn(res)}/>
           </div>
           <div className={styles.content}>
-            <Dashboard select={btn}/>
+            <Dashboard select={btn} trader={user.trader}/>
           </div>
         </div>
       </div>

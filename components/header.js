@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Link from 'next/link'
+import Link from "next/link";
 import styles from "../styles/header.module.css";
 
 export default function Header(props) {
@@ -14,20 +14,30 @@ export default function Header(props) {
           rel="stylesheet"
         />
       </Head>
-      <nav className={styles.navbar + ' ' + props}>
+      <nav className={styles.navbar + " " + props}>
         <div className={styles.content}>
           <div className={styles.logo}>
-            <a href='/'><img src="/logo.svg" alt="Logo" /></a>
+            <a href="/">
+              <img src="/logo.svg" alt="Logo" />
+            </a>
             <div className={styles.links}>
               <ul>
-                <li><Link href='/#hero'>Home</Link></li>
-                <li><Link href='/#content'>Content</Link></li>
-                <li><Link href='/#singup'>Sing up</Link></li>
+                <li>
+                  <Link href="/#hero">Home</Link>
+                </li>
+                <li>
+                  <Link href="/#content">Content</Link>
+                </li>
+                <li>
+                  <Link href="/#singup">Sing up</Link>
+                </li>
               </ul>
             </div>
           </div>
           <div className={styles.login}>
-            <Link href='/login'><h1>Login</h1></Link>
+            <Link href="/user">
+              <h1>Login</h1>
+            </Link>
           </div>
         </div>
       </nav>

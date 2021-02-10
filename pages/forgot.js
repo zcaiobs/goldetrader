@@ -1,5 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
+import { Router, useRouter } from "next/router";
 import { useState } from "react";
 import Footer from "../components/footer";
 import styles from "../styles/forgot.module.css";
@@ -7,6 +8,8 @@ import styles from "../styles/forgot.module.css";
 export default function Forgot() {
   const [error, setError] = useState("");
   const [user, setUser] = useState({});
+  const [active, setActive] = useState(false);
+  const router = useRouter()
 
   const handleValue = (event) => {
     const name = event.target.name;
@@ -33,11 +36,14 @@ export default function Forgot() {
   };
 
   const enter = (event) => {
+    setActive(true)
     auth(user)
       .then((res) => {
         alert(res.data)
+        router.push("/login")
       })
       .catch((err) => {
+        setActive(false)
         setError("" + err) 
       });
     event.preventDefault();
@@ -63,7 +69,7 @@ export default function Forgot() {
               required
             />
           </label>
-          <button>Send</button>
+          <button disabled={active}>Send</button>
           <div className={styles.error}>
             <p>{error}</p>
           </div>

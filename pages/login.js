@@ -37,8 +37,15 @@ export default function Login() {
           localStorage.setItem("token", result.headers.token);
           router.push("/user");
         }
+        if (result.status === 202) {
+          localStorage.removeItem("token");
+          localStorage.setItem("token", result.headers.token);
+          router.push("/verification");
+        }
       })
-      .catch((err) => setError(""+err));
+      .catch((err) => {
+        setError("" + err);
+      });
     event.preventDefault();
   };
 

@@ -10,6 +10,7 @@ export default function NewPassword() {
   const [user, setUser] = useState({});
   const [repwd, setRepwd] = useState("");
   const [error, setError] = useState("");
+  const [active, setActive] = useState(false);
 
   const handleValue = (event) => {
     const name = event.target.name;
@@ -29,6 +30,7 @@ export default function NewPassword() {
   };
 
   const newpwd = (event) => {
+    setActive(true)
     if (user.password === repwd) {
       axios
         .put(
@@ -43,7 +45,10 @@ export default function NewPassword() {
           alert(res.data);
           router.push("/login");
         })
-        .catch((err) => setError("" + err));
+        .catch((err) => {
+          setActive(false)
+          setError("" + err)
+        });
     }
     event.preventDefault();
   };
@@ -83,7 +88,7 @@ export default function NewPassword() {
               placeholder="*****"
             />
           </label>
-          <button>Register</button>
+          <button disabled={active}>Register</button>
           <div className={styles.error}>
             <p>{error}</p>
           </div>
