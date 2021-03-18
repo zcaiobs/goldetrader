@@ -1,11 +1,37 @@
 import styles from "../styles/createbet.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import TableBet from "../components/tablebet";
 
 export default function CreateBet(props) {
   const [bet, setBet] = useState({});
-  const [list, listSet] = useState(props.trader);
+  const [list, setList] = useState([]);
+
+  const comp = async () => {
+    try {
+      if (typeof window !== "undefined") {
+        const token = localStorage.getItem("token");
+
+        const options = {
+          method: "GET",
+          headers: { token: token },
+          data: null,
+          url: "http://localhost:8080/page",
+        };
+        return await axios.request(options);
+      }
+    } catch (err) {
+      router.push("/login");
+    }
+  };
+
+  useEffect(() => {
+      comp()
+        .then((res) => {
+          setList(res.data.trader.reverse());
+        })
+        .catch((err) => console.log("Error " + err));
+  }, []);
 
   const handleValue = (event) => {
     const name = event.target.name;
@@ -38,7 +64,6 @@ export default function CreateBet(props) {
     document.getElementById("form").reset();
     setBet("");
     event.preventDefault();
-    console.log(props.trader);
   };
 
   const salvar = async (event) => {
@@ -49,7 +74,7 @@ export default function CreateBet(props) {
         return res.data.trader;
       })
       .catch((err) => console.log(err));
-    listSet(result);
+    setList(result.reverse());
   };
 
   return (
@@ -151,12 +176,8 @@ export default function CreateBet(props) {
       </form>
       <hr />
       <div className={styles.listbet}>
-        <h1>List Bet</h1>
-        <TableBet /> 
-        {list.map((res) => {
-          if (res.event && res.stake)
-            return <p key={res.id}>{res.event + " " + res.stake}</p>;
-        })}
+        <h1>List the 5 last Bets</h1>
+        <TableBet bet={list} att={(att) => setList(att)} />
       </div>
     </div>
   );

@@ -1,6 +1,10 @@
-.listbet table {
+.findtablebet {
     border: 1px solid #dddddd;
     border-collapse: collapse;
+}
+
+.listable {
+  width: 100%;
 }
 
 .listable td {

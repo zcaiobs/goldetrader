@@ -1,12 +1,14 @@
 import styles from "../styles/dashboard.module.css";
-import CreateBet from '../components/createbet'
+import CreateBet from './createbet'
+import Result from './result'
+import FindBet from './findbet'
 
 export default function Dashboard(props) {
   switch (props.select) {
     case "a":
       return (
         <div className={styles.dashboard}>
-          <h1>Option 1</h1>
+          <Result />
         </div>
       );
     case "b":
@@ -18,7 +20,7 @@ export default function Dashboard(props) {
     case "c":
       return (
         <div className={styles.dashboard}>
-          <h1>Option 3</h1>
+          <FindBet trader={props.trader}/>
         </div>
       );
     case "d":

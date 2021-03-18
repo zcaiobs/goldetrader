@@ -82,7 +82,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+    padding: 20px;
 }
 
 .btnaction {
@@ -123,11 +124,11 @@
 }
 
 .btndescartar {
-    background: rgb(253, 34, 78);
+    background: rgb(253, 213, 34);
 }
 
 .btndescartar:active {
-    background: rgb(209, 29, 65);
+    background: rgb(209, 206, 29);
 }
 
 .btnaction button:focus {
